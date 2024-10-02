@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0f40b21d6d.js" crossorigin="anonymous"></script>
+    <title>News</title>
+    <style>
+        /* Khung chứa các hình ảnh */
+        .partner-loop {
+            width: 300px;
+            height: 150px;
+            overflow: hidden; /* Ẩn các phần tử ra ngoài khung */
+            border: 2px solid #ccc;
+            position: relative;
+        }
+
+        /* Dòng hình ảnh bên trong khung */
+        .img-loop {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            animation: scrollImages 10s linear infinite; /* Animation cho hình ảnh lướt qua */
+        }
+
+        /* Từng hình ảnh */
+        .img-loop img {
+            width: 300px; /* Đặt kích thước cho từng hình ảnh */
+            height: 150px;
+            padding-right: 20px;
+        }
+
+        /* Keyframes để điều khiển hình ảnh di chuyển */
+        @keyframes scrollImages {
+            0% { left: 0; }
+            100% { left: -900px; } /* Di chuyển 3 hình ảnh, mỗi hình 300px */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header content">
+            <a href="index.html">
+                <img class="home" src="img/bm-logo.png" alt="">
+            </a>
+            
+            <div class="search">
+                <input type="text" placeholder="Nhập nội dung tìm kiếm" >
+                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="hotsearch">
+        <div class="hotsearch-content">
+            <a href=""><p>NÓNG</p></a>
+            <a href=""><p>MỚI</p></a>
+            <a href=""><p>VIDEO</p></a>
+            <a href=""><p>CHỦ ĐỀ</p></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <a class="slide" href="">
+                <img  id="slideImage" src="img/top.jpg" alt="">
+                <p id="slideTitle" style="margin-bottom: 0px;">Thảm hỏa làng Nủ - Nhận định nguyên nhân ban đầu</p><br><h6 id="slideInfo" style="margin: 0px; color: white;">6h | 3 liên quan</h6>
+            </a>
+            
+            <script>
+                // Mảng dữ liệu chứa các thông tin cần thay đổi
+                const slides = [
+                    {
+                        href: "",
+                        imgSrc: "img/top1.jpg",
+                        title: "Cận cảnh cầu phao Phong Châu sau khi tạm dừng hoạt động",
+                        info: "2h | 112 liên quan"
+                    },
+                    {
+                        href: "",
+                        imgSrc: "img/top2.jpg",
+                        title: "Đề nghị truy tố 17 bị can trong vụ chuyến bay giải cứu giai đoạn 2",
+                        info: "17p | 1112 liên quan"
+                    },
+                    {
+                        href: "",
+                        imgSrc: "img/top.jpg",
+                        title: "Thảm hỏa làng Nủ - Nhận định nguyên nhân ban đầu",
+                        info: "6h | 3 liên quan"
+                    }
+                ];
+            
+                let currentIndex = 0;
+            
+                function changeSlide() {
+                    // Cập nhật href cho thẻ a
+                    document.querySelector('.slide').href = slides[currentIndex].href;
+            
+                    // Cập nhật src cho ảnh
+                    document.getElementById('slideImage').src = slides[currentIndex].imgSrc;
+            
+                    // Cập nhật nội dung thẻ p (title)
+                    document.getElementById('slideTitle').textContent = slides[currentIndex].title;
+            
+                    // Cập nhật nội dung thẻ h6 (info)
+                    document.getElementById('slideInfo').textContent = slides[currentIndex].info;
+            
+                     // Tăng chỉ mục cho slide tiếp theo
+                    currentIndex++;
+
+                    // Nếu đã chạy hết mảng thì quay lại phần tử đầu tiên
+                    if (currentIndex >= slides.length) {
+                        currentIndex = 0;
+                    }
+                }
+            
+                // Đặt thời gian để thay đổi slide mỗi 3 giây
+                setInterval(changeSlide, 3000);
+            </script>
+            
+
+            <div class="more">
+                <div class="top">
+                    <div class="top1">
+                        <a href="">
+                            <img src="img/topimg1.jpg" alt="">
+                            <p>Việt Nam phản đối cách hành xử thô bạo của Trung Quốc với tàu cá tại Hoàng Sa</p>
+                        </a>
+                        
+                    </div>
+                    <div class="top2">
+                        <a href="">
+                            <img src="img/topimg2.jpg" alt="">
+                            <p>Bộ Công an sẽ giải quyết tố giác hành vi 'phông bạt' bill chuyển tiền từ thiện</p>
+                        </a>
+                    </div>
+                    <div class="top3">
+                        <a href="">
+                            <img src="img/topimg3.jpg" alt="">
+                            <p>Nguyên Phó giám đốc Sở Ngoại vụ tỉnh Thái Nguyên đã nhận hối lộ như thế nào?</p>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="listnews">
+                    <div class="news">
+                        <img src="img/news1.jpg" alt="">
+                        <p>Vụ tấn công dồn dập bằng tên lửa siêu vượt âm đã phá hủy căn cứ F-35 Nevatim của Israel?</p>
+                    </div>
+                    <div class="news">
+                        <img src="img/news2.jpg" alt="">
+                        <p>Cựu Tổng thống Mỹ Donald Trump nói: "Tôi sẽ không trả tiền làm thêm giờ cho nhân viên vì tôi ghét nó"</p>
+                    </div>
+                    <div class="news">
+                        <img src="img/news3.jpg" alt="">
+                        <p>Ông Trump cảnh báo "thảm họa toàn cầu" sau khi Iran tấn công tên lửa Israel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="news-item">
+                <a href="">
+                    <img src="img/right1.jpg" alt="Hình ảnh tin tức 1">
+                    <p>Tổng Bí thư, Chủ tịch nước chứng kiến Lễ ký các văn kiện hợp tác với Mông Cổ</p>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="">
+                    <img src="img/right2.jpg" alt="Hình ảnh tin tức 2">
+                    <p>Nguyên nhân 20 con hổ và 1 con báo chết tại khu du lịch Vườn Xoài</p>
+                </a>
+                
+            </div>
+            <div class="news-item">
+                <a href="">
+                    <img src="img/right3.jpg" alt="Hình ảnh tin tức 3">
+                    <p>Phê chuẩn kết quả bầu ông Hồ Văn Mừng làm Chủ tịch UBND tỉnh An Giang</p>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="">
+                    <img src="img/right4.jpg" alt="Hình ảnh tin tức 3">
+                    <p>Nhóm 'choai' mang dao, đi đến đâu... cướp đến đó</p>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="">
+                    <img src="img/right6.jpg" alt="Hình ảnh tin tức 3">
+                    <p>Hỗ trợ 2000 vé tàu và 400 vé máy bay cho người lao động dịp Tết nguyên đán</p>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="">
+                    <img src="img/right5.jpg" alt="Hình ảnh tin tức 3">
+                    <p>Chung tay xây dựng nền hành chính tỉnh Quảng Ngãi trong sạch, vững mạng, thông suốt, hiện đại</p>
+                </a>
+            </div>
+            <div class="partner-loop">
+                <div class="img-loop">
+                    <img src="img/anninh.png" alt="">
+                    <img src="img/phapluat.png" alt="">
+                    <img src="img/saigon.png" alt="">
+                    <img src="img/tintuc.png" alt="">
+                    <img src="img/toquoc.png" alt="">
+                    <img src="img/tuyengiao.png" alt="">
+                </div>
+            </div>
+            <div class="poster">
+                <img src="img/poster.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
